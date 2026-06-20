@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+
+# 数据文件
+data/cache/**
+data/portfolios/**
+data/chain_reports/**
+data/reports/**
+!data/**/.gitkeep
+
+# 配置文件（含API密钥）
+.env
+*.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# 日志
+*.log
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 缓存
+.pytest_cache/
+.mypy_cache/

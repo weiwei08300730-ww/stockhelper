@@ -1,0 +1,64 @@
+# StockHelper 配置文件
+# =====================
+
+# --- 数据源设置 ---
+data_source:
+  primary: "akshare"        # 主数据源
+  backup: ["akshare"]       # 备用数据源列表
+  timeout: 15               # 请求超时（秒）
+  retry_times: 3            # 失败重试次数
+  retry_delays: [2, 5, 10] # 重试间隔（秒）
+
+# --- 缓存设置 ---
+cache:
+  enabled: true
+  dir: "data/cache"
+  market_data_ttl: 86400    # 行情数据缓存有效期（秒，1天）
+  chain_data_ttl: 604800    # 产业链数据缓存有效期（秒，7天）
+  financial_data_ttl: 86400 # 财务数据缓存有效期
+
+# --- 自选股设置 ---
+portfolio:
+  storage: "json"           # 存储方式：json / sqlite
+  file: "data/portfolios/watchlist.json"
+  max_groups: 10            # 最大分组数
+
+# --- 产业链分析设置 ---
+industry_chain:
+  cache_dir: "data/cache/chains"
+  min_segments: 3           # 产业链最少环节数
+  min_companies_per_segment: 3  # 每环节最少公司数
+  research_timeout: 60      # 单次调研超时（秒）
+
+# --- 增长筛选模型设置 ---
+growth_screener:
+  # 各维度权重（总和=100）
+  weights:
+    revenue_growth: 25      # 营收增长
+    profit_growth: 25       # 利润增长
+    roe: 15                 # 盈利能力
+    cashflow_quality: 10    # 增长质量
+    margin_trend: 10        # 盈利趋势
+    peg: 10                 # 估值匹配
+    acceleration: 5         # 季度加速
+
+  # 阈值
+  thresholds:
+    breakout_revenue: 50    # 业绩爆发：营收增速 > 50%
+    breakout_profit: 100    # 业绩爆发：净利润增速 > 100%
+    high_growth_revenue: 30 # 高增长：营收增速 > 30%
+    high_growth_profit: 50  # 高增长：净利润增速 > 50%
+    roe_threshold: 15       # ROE 及格线
+    peg_threshold: 1.0      # PEG 及格线
+
+# --- 报告设置 ---
+report:
+  output_dir: "data/reports"
+  theme: "dark"             # dark / light
+  language: "zh"            # 报告语言
+
+# --- 日志设置 ---
+logging:
+  level: "INFO"             # DEBUG / INFO / WARNING / ERROR
+  file: "data/stockhelper.log"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level:<7} | {name} | {message}"

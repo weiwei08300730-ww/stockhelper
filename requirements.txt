@@ -1,0 +1,35 @@
+# StockHelper - 智能股票数据分析助手
+# Python 3.10+
+
+# ===== 数据采集 =====
+akshare>=1.14.0            # A股数据主源（行情、财务、产业链）
+requests>=2.31.0           # HTTP 请求
+beautifulsoup4>=4.12.0     # HTML 解析（网页数据抓取）
+lxml>=5.0.0                # XML/HTML 解析引擎
+
+# ===== 数据处理 =====
+pandas>=2.0.0              # 核心数据处理
+numpy>=1.24.0              # 数值计算
+openpyxl>=3.1.0            # Excel 读写
+
+# ===== 技术分析 =====
+ta>=0.11.0                 # 技术指标计算（MA、MACD、RSI、KDJ、BOLL）
+
+# ===== 可视化 =====
+matplotlib>=3.7.0          # 基础图表
+plotly>=5.15.0             # 交互式图表
+pyecharts>=2.0.0           # ECharts Python封装（专业股票图表）
+jinja2>=3.1.0              # HTML 报告模板引擎
+
+# ===== CLI =====
+click>=8.1.0               # 命令行框架
+rich>=13.0.0               # 终端美化（表格、颜色、进度条）
+tabulate>=0.9.0            # 数据表格格式化
+
+# ===== 工具 =====
+pyyaml>=6.0                # 配置文件解析
+loguru>=0.7.0              # 日志管理
+python-dotenv>=1.0.0       # 环境变量管理
+
+# ===== Web App（手机端）=====
+streamlit>=1.35.0          # 移动端 Web UI
